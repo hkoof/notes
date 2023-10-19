@@ -1,5 +1,9 @@
 ---
-tags: [cgroup, process, systemd]
+tags:
+  - cgroup
+  - process
+  - systemd
+  - slices
 ---
 
 `systemd-cgls`
