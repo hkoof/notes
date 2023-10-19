@@ -2,6 +2,7 @@
 tags: bash, script, pid, ppid, parent, processes
 ---
 
+```bash
     # List parent processes up to PID 1 (exclusive)
     #
     # Args:
@@ -20,3 +21,4 @@ tags: bash, script, pid, ppid, parent, processes
             pid=$ppid
         done
     }
+```
