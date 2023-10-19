@@ -1,2 +1,2 @@
 # notes
-My notes for shell and script
+Notes, not limited to shell and script
