@@ -1,5 +1,5 @@
 ---
-tags: LDIF, ldif, space, unwrap, wrapped, lines, start/space
+tags: [LDIF, ldif, space, unwrap, wrapped, line, start]
 ---
 
 File in LDIF format wrap lines by starting the next line with exactly one
