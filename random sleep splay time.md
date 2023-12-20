@@ -1,5 +1,5 @@
 ---
-tags: [random, sleep, time, splay, infinite, infinity, forever]
+tags: [ random, sleep, time, splay, infinite, infinity, forever ]
 ---
 
 Sleep for a random time, max 240 seconds in this case:

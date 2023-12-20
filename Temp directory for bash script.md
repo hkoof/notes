@@ -1,5 +1,5 @@
 ---
-tags: bash, script, tmpdir, tmp, temp, directory, cleanup
+tags: [ bash, script, tmpdir, tmp, temp, directory, cleanup ]
 ---
 
 ```bash

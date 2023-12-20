@@ -1,5 +1,5 @@
 ---
-tags: bash, script, pid, ppid, parent, processes
+tags: [ bash, script, pid, ppid, parent, processes ]
 ---
 
 ```bash

@@ -1,5 +1,11 @@
 ---
-tags: [TLS, SSL, certificate, expiry, date]
+tags:
+  - TLS
+  - SSL
+  - certificate
+  - expiry
+  - date
+  - validity
 ---
 
 To get the expiry date of an SSL certificate remotely, do:
