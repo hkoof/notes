@@ -1,5 +1,5 @@
 ---
-tags: [hsts, HSTS, webserver, SSL]
+tags: [hsts, HSTS, webserver, SSL, headers, http]
 ---
 
 # How to set HSTS max-age header to 1 year on web servers.
@@ -21,6 +21,12 @@ Add the following line to the `apache2.conf` file:
 Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 ```
 
+Make sure the "headers" module is enabled:
+
+```bash
+a2enmod headers
+```
+
 and restart apache2.
 
 
@@ -33,3 +39,8 @@ add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; prelo
 ```
 
 and restart nginx.
+
+
+
+- nginx: server_tokens off; in /etc/nginx/nginx.conf
+- apache: ServerTokens Prod in /etc/apache2/apache2.conf (of in sites-available file)
