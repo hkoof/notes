@@ -30,6 +30,6 @@ fail2ban-client set sshd unbanip 192.168.0.10
 iptables -L f2b-sshd -n
 ```
 
-None of the above commands show when an IP adress was banned or when it will be
+None of the above commands show when an IP address was banned or when it will be
 un-banned. That information can be found in the log file
 `/var/log/fail2ban.log`
