@@ -1,7 +1,6 @@
 # Docker intro summary
 
-Mostly my own summary of https://github.com/eficode-academy/docker-katas
-Also used and recommended: https://docker-handbook.farhan.dev/
+Mostly taken from https://github.com/eficode-academy/docker-katas
 
 ```bash
 docker container run -d alpine ping host.docker.internal
