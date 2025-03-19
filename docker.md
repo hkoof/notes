@@ -318,4 +318,36 @@ docker container run --network mynet --rm --name alpine-box -it alpine sh
 docker network rm mynet
 ```
 
+## Rootless docker
+
+In order to run the docker service under a regular user account on a host
+running Debian 11 or later:
+
+```bash
+apt install uidmap dbus-user-session slirp4netns
+
+# Disable docker rootfull
+systemctl disable --now docker.service docker.socket
+rm /var/run/docker.sock
+```
+
+After this, (re-)login as the user who is going to run the docker service, and run:
+
+```bash
+dockerd-rootless-setuptool.sh install
+systemctl --user enable docker
+
+echo 'export DOCKER_HOST=unix:///run/user/$(id -u)/docker.sock' >> ~/.bashrc
+```
+
+In order to start the rootless docker daemon at system startup as opposed to
+only when the user starts a session by logging in, enable systemd's 'lingering':
+
+```bash
+# As root!
+#
+loginctl enable-linger <account>
+```
+
+(Re-)login once more and check everythin is working as expected.
 
