@@ -1,7 +1,6 @@
 # Docker intro summary
 
-Mostly my own summary of https://github.com/eficode-academy/docker-katas
-Also used and recommended: https://docker-handbook.farhan.dev/
+Mostly taken from https://github.com/eficode-academy/docker-katas
 
 ```bash
 docker container run -d alpine ping host.docker.internal
@@ -278,7 +277,45 @@ be specified in the exec form and the first item should include a path to the
 executable.
 
 
-## Networking
+## Networking multiple containers
 
+Multiple containers often need to connect over a network, e.g. a containered
+webserver needs to connect to a database served by another container.
+Connecting containers via exposed port needlessly exposes a container to
+outside network. On the other hand trying to connect containers using the
+localhost network (127.0.0.1) will fail because it is local to the container(!).
+
+For these reasons docker has its own network devices. By default 3 networks
+exist. Thay can be listed using the `docker network ls` command.
+
+- `bridge` :  the default network all containers will be connected to if no
+  other is specified.
+
+- `host` : Connect to the network the host is connected to. No isolation.
+
+- `none` : a network that does not connect anything. (useless?).
+
+Creating a user-defined bridge for a group of containers that need to connect
+to eachother for a specific application is a good idea. It provides better
+isolation, containers can be connected and disconnected on the fly, and last but
+not least, container names are resolved to IP addresses.
+
+Some commands dealing with docker networks:
+
+```bash
+docker network create mynet
+docker network ls
+
+docker network connect mynet alpine-box  # container is still also connected to 'bridge'
+docker network disconnect mynet alpine-box
+
+docker network inspect --format='{{range .Containers}} {{.Name}} {{end}}' mynet
+docker network
+
+docker container run --network mynet --rm --name alpine-box -it alpine sh
+# Note: container now only connected to network 'mynet'.
+
+docker network rm mynet
+```
 
 
