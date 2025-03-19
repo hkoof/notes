@@ -30,6 +30,19 @@ yet, see previous example):
 docker exec -it container_name /bin/sh
 ```
 
+To start an (interactive) shell, but run the container in the background to be
+attached to later, specify the `-d` option:
+
+```bash
+docker exec -dit container_name /bin/sh
+```
+
+To attach your stdin/out/err to the container's tty:
+
+```bash
+docker container attach name/id
+```
+
 *Note:* option `-i` enables interactive mode and `-t` allocates tty.  Works too for `run`:
 
 ```bash
@@ -46,6 +59,7 @@ docker container rm -f container_name_or_id
 Remove an image:
 ```bash
 docker rmi centos
+docker image rm centos  # modern
 ```
 
 
@@ -54,7 +68,7 @@ Getting information:
 ```bash
 docker container info
 docker container stats
-docker container logs  <name>  # Get logs
+docker container logs name  # Get logs
 docker container inspect  # Tech info (e.g. network config) in json
 docker container ls -as  # Show size of containers
 ```
