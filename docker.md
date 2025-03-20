@@ -351,3 +351,21 @@ loginctl enable-linger <account>
 
 (Re-)login once more and check everythin is working as expected.
 
+
+## Docker and CI/CD
+
+For CI/CD purposes we might want to run docker containers from a docker
+container. I makes sense to run gitlab-runner from the [official docker
+image](https://hub.docker.com/r/gitlab/gitlab-runner).  This runner will then
+start other docker containers to run the pipeline jobs.
+
+This sounds like containers inside a container, like a parent container running
+child containers. Though this concept does exist (docker-in-docker a.k.a. "dind")
+it is probably not the best way in this relatively simple case.
+
+When we just bind mount the socket of our docker daemon in the gitlab-runner
+container, it can start sibling containers.
+
+See [this blog
+post](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/#the-socket-solution)
+for details on this subject.
