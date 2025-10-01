@@ -140,7 +140,6 @@ docker container run --rm --name webbo -d -p 8080:80 -v data:/usr/share/nginx/ht
 
 # Another example
 docker run -it --rm -v data:/tmp ubuntu bash
-
 ```
 
 Multiple containers can access a volume at the same time. To share volumes (or bind mounts) between
@@ -349,13 +348,13 @@ only when the user starts a session by logging in, enable systemd's 'lingering':
 loginctl enable-linger <account>
 ```
 
-(Re-)login once more and check everythin is working as expected.
+(Re-)login once more and check everything is working as expected.
 
 
 ## Docker and CI/CD
 
 For CI/CD purposes we might want to run docker containers from a docker
-container. I makes sense to run gitlab-runner from the [official docker
+container. It makes sense to run gitlab-runner from the [official docker
 image](https://hub.docker.com/r/gitlab/gitlab-runner).  This runner will then
 start other docker containers to run the pipeline jobs.
 
